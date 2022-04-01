@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebbProject-yr3-cdnreact", "WebbProject-yr3-cdnreact.csproj", "{8DCE4476-698E-4F90-8226-A94A0112490C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DCE4476-698E-4F90-8226-A94A0112490C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DCE4476-698E-4F90-8226-A94A0112490C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DCE4476-698E-4F90-8226-A94A0112490C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DCE4476-698E-4F90-8226-A94A0112490C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1952C25-A751-4D77-A367-00837A923826}
+	EndGlobalSection
+EndGlobal

@@ -13,6 +13,6 @@ namespace WebbProjekt_yr3.Data
     public class ProductDbContext : DbContext
     {
         public ProductDbContext(DbContextOptions<ProductDbContext> options) : base(options) { }
-        public DbSet<ProductModel> Product { get; set; }
+        public DbSet<ProductModel> Products { get; set; }
     }
 }

@@ -28,3 +28,28 @@ and
 ```
 dotnet ef database update --context ProductDbContext
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Theo Notes:
+
+in packagemananger to update migration to new model : 
+```
+dotnet ef migrations add MyName
+```
+in packagemananger to update database after migration: 
+```
+dotnet ef database update
+```

@@ -50,7 +50,7 @@ Theo Notes:
 
 in packagemananger to update migration to new model : 
 ```
-dotnet ef migrations add MyName
+dotnet ef migrations add MyName --context MyDbContext
 ```
 in packagemananger to update database after migration: 
 ```

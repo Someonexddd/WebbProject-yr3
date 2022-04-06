@@ -51,5 +51,5 @@ dotnet ef migrations add MyName
 ```
 in packagemananger to update database after migration: 
 ```
-dotnet ef database update
+dotnet ef database update --context MyDbContext
 ```

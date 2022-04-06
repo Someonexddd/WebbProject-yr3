@@ -43,9 +43,13 @@ Step 5.
 In Package Mananger Console (Tools -> NuGetPackage manager ->  package manager console and then it should open at the bottom of visual studio)
 Type:
 ```
-dotnet ef database update --context ApplicationDbContext
+dotnet tool install --global dotnet-ef
 ```
 and
+```
+dotnet ef database update --context ApplicationDbContext
+```
+and lastly
 ```
 dotnet ef database update --context ProductDbContext
 ```

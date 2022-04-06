@@ -14,5 +14,14 @@ namespace WebbProjekt_yr3.Data
     {
         public ProductDbContext(DbContextOptions<ProductDbContext> options) : base(options) { }
         public DbSet<ProductModel> Products { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProductModel>()
+                .Property(b => b.AddDate)
+                .HasDefaultValueSql("getdate()");
+            modelBuilder.Entity<ProductModel>()
+                .Property(b => b.ProductId)
+                .HasDefaultValueSql("(newid())");
+        }
     }
 }

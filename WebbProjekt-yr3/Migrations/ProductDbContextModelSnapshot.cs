@@ -23,7 +23,13 @@ namespace WebbProjekt_yr3.Migrations
                 {
                     b.Property<Guid>("ProductId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
+
+                    b.Property<DateTime>("AddDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DateTime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
@@ -39,6 +45,10 @@ namespace WebbProjekt_yr3.Migrations
 
                     b.Property<DateTime>("ReleaseYear")
                         .HasColumnType("date");
+
+                    b.Property<string>("UnitsInStock")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
 

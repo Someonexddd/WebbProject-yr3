@@ -10,7 +10,7 @@ using WebbProjekt_yr3.Data;
 namespace WebbProjekt_yr3.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20220405122456_InitialCreate")]
+    [Migration("20220406010316_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,13 @@ namespace WebbProjekt_yr3.Migrations
                 {
                     b.Property<Guid>("ProductId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
+
+                    b.Property<DateTime>("AddDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DateTime")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
@@ -41,6 +47,10 @@ namespace WebbProjekt_yr3.Migrations
 
                     b.Property<DateTime>("ReleaseYear")
                         .HasColumnType("date");
+
+                    b.Property<string>("UnitsInStock")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
 

@@ -28,21 +28,17 @@ and
 ```
 dotnet ef database update --context ProductDbContext
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
 Theo Notes:
 
 in packagemananger to update migration to new model : 

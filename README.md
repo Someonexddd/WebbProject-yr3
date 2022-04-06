@@ -6,7 +6,9 @@ Step 1.
 
 Open SQL Server Object Explorer (View -> SQL Server Object Explorer then it should open on the left side of visual studio)
 
-Expand localdb mssqll local something something
+Expand SQL Server
+
+Expand (localdb)\MSSQLLocalDB..................................
 
 Rightclick on the "Databases" folder
 

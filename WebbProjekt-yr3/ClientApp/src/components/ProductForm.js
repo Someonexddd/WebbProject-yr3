@@ -91,7 +91,7 @@ export default function ProductForm() {
 
     const applyErrorClass = field => ((field in errors && errors[field]===false)?' invalid-field':'')
 
-    const productAPI = (url = '') => {
+    const productAPI = (url = 'https://localhost:5000/api/ProductModels') => {
         return {
             fetchAll: () => axios.get(url),
             create: newRecord => axios.post(url, newRecord),

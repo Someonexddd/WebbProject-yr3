@@ -26,6 +26,8 @@ namespace WebbProjekt_yr3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -69,6 +71,10 @@ namespace WebbProjekt_yr3
                 app.UseHsts();
             }
 
+            app.UseCors(options => options.WithOrigins("https://localhost:5000")
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                );
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();

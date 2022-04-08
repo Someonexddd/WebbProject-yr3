@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebbProjekt_yr3.Data;
 using WebbProjekt_yr3.Models;
+using Microsoft.AspNetCore.Hosting;
 
 namespace WebbProjekt_yr3.Controllers
 {
@@ -15,10 +17,12 @@ namespace WebbProjekt_yr3.Controllers
     public class ProductModelsController : ControllerBase
     {
         private readonly ProductDbContext _context;
+        private readonly IWebHostEnvironment _hostEnviroment;
 
-        public ProductModelsController(ProductDbContext context)
+        public ProductModelsController(ProductDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnviroment = hostEnvironment;
         }
 
         // GET: api/ProductModels
@@ -78,6 +82,7 @@ namespace WebbProjekt_yr3.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductModel>> PostProductModel([FromForm]ProductModel productModel)
         {
+            productModel.ImageName = await SaveImage(productModel.ImageFile);
             _context.Products.Add(productModel);
             await _context.SaveChangesAsync();
 
@@ -103,6 +108,19 @@ namespace WebbProjekt_yr3.Controllers
         private bool ProductModelExists(Guid id)
         {
             return _context.Products.Any(e => e.ProductId == id);
+        }
+
+        [NonAction]
+        public async Task<string> SaveImage(IFormFile imageFile)
+        {
+            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ', '-');
+            imageName = imageName+DateTime.Now.ToString("yymmssfff")+Path.GetExtension(imageFile.FileName);
+            var imagePath = Path.Combine(_hostEnviroment.ContentRootPath, "Images", imageName);
+            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            {
+                await imageFile.CopyToAsync(fileStream);
+            }
+            return imageName;
         }
     }
 }

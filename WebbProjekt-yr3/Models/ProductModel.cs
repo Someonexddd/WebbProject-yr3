@@ -29,5 +29,9 @@ namespace WebbProjekt_yr3.Models
         public string Genre { get; set; }
         [Column(TypeName = "nvarchar(max)")]
         public int UnitsInStock { get; set; }
+        [Column(TypeName = "nvarchar(max)")]
+        public int ImageName { get; set; }
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
     }
 }

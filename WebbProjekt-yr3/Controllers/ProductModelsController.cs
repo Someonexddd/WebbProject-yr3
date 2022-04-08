@@ -76,12 +76,12 @@ namespace WebbProjekt_yr3.Controllers
         // POST: api/ProductModels
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ProductModel>> PostProductModel(ProductModel productModel)
+        public async Task<ActionResult<ProductModel>> PostProductModel([FromForm]ProductModel productModel)
         {
             _context.Products.Add(productModel);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProductModel", new { id = productModel.ProductId }, productModel);
+            return StatusCode(201);
         }
 
         // DELETE: api/ProductModels/5

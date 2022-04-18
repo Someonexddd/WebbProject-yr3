@@ -26,8 +26,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
     "nan": "^2.14.1",
-    "rimraf": "^3.0.2",
-    "typescript": "^3.7.5"
+    "rimraf": "^3.0.2"
   },
   "eslintConfig": {
     "extends": "react-app"

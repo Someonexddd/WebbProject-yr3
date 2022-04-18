@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebbProjekt_yr3.Data;
 using WebbProjekt_yr3.Models;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
 
 namespace WebbProjekt_yr3
 {
@@ -32,6 +34,8 @@ namespace WebbProjekt_yr3
             services.AddDbContext<ProductDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddCors();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -68,6 +72,20 @@ namespace WebbProjekt_yr3
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCors(options => options.WithOrigins("https://localhost:5001",
+                                                       "localhost:5001",
+                                                       "localhost:5000",
+                                                       "https://localhost:5000",
+                                                       "null")
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Images")),
+                RequestPath = "/Images"
+            });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

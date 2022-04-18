@@ -33,5 +33,7 @@ namespace WebbProjekt_yr3.Models
         public string ImageName { get; set; }
         [NotMapped]
         public IFormFile ImageFile { get; set; }
+        [NotMapped]
+        public string ImageSrc { get; set; }
     }
 }

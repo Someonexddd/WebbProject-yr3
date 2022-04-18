@@ -29,7 +29,22 @@ namespace WebbProjekt_yr3.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductModel>>> GetProducts()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products
+                .Select(x => new ProductModel()
+                {
+                    ProductId = x.ProductId,
+                    Name = x.Name,
+                    ReleaseYear = x.ReleaseYear,
+                    AddDate = x.AddDate,
+                    Country = x.Country,
+                    Format = x.Format,
+                    Genre = x.Genre,
+                    UnitsInStock = x.UnitsInStock,
+                    ImageName = x.ImageName,
+                    ImageFile = x.ImageFile,
+                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
+                })
+                .ToListAsync();
         }
 
         // GET: api/ProductModels/5

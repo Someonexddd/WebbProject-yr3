@@ -3,12 +3,7 @@ import ProductForm from './ProductForm';
 import axios from "axios";
 
 function ReturnFunc() {
-
-
-
-
-
-
+    
 
     const addOrEdit = (formData, onSucess) => {
         productAPI().create(formData)
@@ -21,7 +16,7 @@ function ReturnFunc() {
     const productAPI = (url = 'http://localhost:5000/api/ProductModels') => {
         return {
             fetchAll: () => axios.get(url),
-            create: newRecord => axios.post(url, newRecord),
+            create: newRecord => axios.post(url, newRecord), 
             update: (id, updatedRecord) => axios.put(url + id, updatedRecord),
             delete: id => axios.delete(url + id)
         }

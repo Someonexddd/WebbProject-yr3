@@ -77,7 +77,8 @@ namespace WebbProjekt_yr3
                                                        "localhost:5001",
                                                        "localhost:5000",
                                                        "https://localhost:5000",
-                                                       "null")
+                                                       "null",
+                                                       "127.0.0.1:5000")
             .AllowAnyMethod()
             .AllowAnyHeader());
 

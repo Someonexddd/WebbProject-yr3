@@ -7,11 +7,13 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace WebbProjekt_yr3.Models
 {       
     public class ProductModel
     {
+        [JsonIgnore]
         [Key]
         public Guid ProductId { get; set; }
         [Column(TypeName ="nvarchar(max)")]

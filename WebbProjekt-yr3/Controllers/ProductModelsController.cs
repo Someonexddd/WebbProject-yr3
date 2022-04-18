@@ -97,6 +97,8 @@ namespace WebbProjekt_yr3.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductModel>> PostProductModel([FromForm]ProductModel productModel)
         {
+            productModel.ProductId = Guid.NewGuid();
+            productModel.AddDate = new DateTime();
             productModel.ImageName = await SaveImage(productModel.ImageFile);
             _context.Products.Add(productModel);
             await _context.SaveChangesAsync();
@@ -105,6 +107,7 @@ namespace WebbProjekt_yr3.Controllers
         }
 
         // DELETE: api/ProductModels/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProductModel(Guid id)
         {

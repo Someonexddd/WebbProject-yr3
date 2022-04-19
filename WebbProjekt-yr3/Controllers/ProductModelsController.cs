@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Hosting;
 namespace WebbProjekt_yr3.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     public class ProductModelsController : ControllerBase
     {
         private readonly ProductDbContext _context;

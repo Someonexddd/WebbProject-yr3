@@ -13,6 +13,7 @@ using WebbProjekt_yr3.Data;
 using WebbProjekt_yr3.Models;
 using System.IO;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebbProjekt_yr3
 {
@@ -36,6 +37,8 @@ namespace WebbProjekt_yr3
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddCors();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 

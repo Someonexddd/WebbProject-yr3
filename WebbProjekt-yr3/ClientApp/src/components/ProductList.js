@@ -1,14 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import ProductForm from './ProductForm';
 import axios from "axios";
 
 function ReturnFunc() {
-    
+
+    const [ProductList, setProductList] = useState([])
+
+    useEffect(() => {
+        refreshProductList();
+    }, [])
 
     const addOrEdit = (formData, onSucess) => {
         productAPI().create(formData)
             .then(res => {
                 onSucess();
+                refreshProductList();
             })
             .catch(err => console.log(err))
     }
@@ -16,14 +22,29 @@ function ReturnFunc() {
     const productAPI = (url = 'http://localhost:5000/api/ProductModels') => {
         return {
             fetchAll: () => axios.get(url),
-            create: newRecord => axios.post(url, newRecord), 
+            create: newRecord => axios.post(url, newRecord),
             update: (id, updatedRecord) => axios.put(url + id, updatedRecord),
             delete: id => axios.delete(url + id)
         }
     }
 
-
-
+    function refreshProductList() {
+        productAPI().fetchAll()
+            .then(res => setProductList(res.data))
+            .catch(err => console.log(err))
+    }
+    const imageCard = data => {
+        <>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src={data.ImgSrc} alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{data.Name}</h5>
+                        <p class="card-text">{data.Artist}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+            </div>
+        </>
+    }
 
     return (
         <div className='row mb-4'>

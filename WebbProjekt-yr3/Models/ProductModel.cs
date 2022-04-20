@@ -18,6 +18,8 @@ namespace WebbProjekt_yr3.Models
         public Guid ProductId { get; set; }
         [Column(TypeName ="nvarchar(max)")]
         public string Name { get; set; }
+        [Column(TypeName = "nvarchar(max)")]
+        public string Artist { get; set; }
         [Column(TypeName ="date")]
         public DateTime ReleaseYear { get; set; }
         [Column (TypeName ="DateTime")]

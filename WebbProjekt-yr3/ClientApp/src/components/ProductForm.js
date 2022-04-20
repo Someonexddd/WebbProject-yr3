@@ -8,6 +8,7 @@ const defaultImageSrc = "/img/Q1OGUTBU_400x400.jpg";
 const initalFieldValues = {
     ProductId: "",
     Name: "",
+    Artist:"",
     ReleaseYear: "",
     AddDate: "",
     Country: "",
@@ -53,6 +54,7 @@ export default function ProductForm(props) {
             setValues({
                 ...values,
                 Name: null,
+                Artist: null,
                 ReleaseYear: null,
                 Country: null,
                 Format: null,
@@ -68,6 +70,7 @@ export default function ProductForm(props) {
     const validate = () => {
         let temp = {}
         temp.Name = values.Name === "" ? false : true;
+        temp.Name = values.Artist === "" ? false : true;
         temp.ReleaseYear = values.ReleaseYear === "" ? false : true;
         temp.UnitsInStock = values.UnitsInStock === "" ? false : true;
         temp.imageSrc = values.imageSrc === defaultImageSrc ? false : true;
@@ -79,6 +82,7 @@ export default function ProductForm(props) {
         setValues(initalFieldValues)
         document.getElementById('image-uploader').value = null;
         document.getElementById('Name').value = null;
+        document.getElementById('Artist').value = null;
         document.getElementById('ReleaseYear').value = null;
         document.getElementById('Country').value = null;
         document.getElementById('Format').value = null;
@@ -93,6 +97,7 @@ export default function ProductForm(props) {
             const formData = new FormData();
             formData.append('ProductId', values.ProductId)
             formData.append('Name', values.Name)
+            formData.append('Artist', values.Name)
             formData.append('ReleaseYear', values.ReleaseYear)
             formData.append('AddDate', values.AddDate)
             formData.append('Country', values.Country)
@@ -128,6 +133,9 @@ export default function ProductForm(props) {
                         </div>
                         <div className='form-group'>
                             <input className={'form-control' + applyErrorClass('Name')} placeholder='Name' name="Name" values={values.Name} onChange={handleInputChange} id="Name"></input>
+                        </div>
+                        <div className='form-group'>
+                            <input className={'form-control' + applyErrorClass('Artist')} placeholder='Artist' name="Artist" values={values.Artist} onChange={handleInputChange} id="Artist"></input>
                         </div>
                         <div className='form-group'>
                             <input className={"form-control" + applyErrorClass('ReleaseYear')} placeholder='YYYY-MM-DD' name="ReleaseYear" values={values.ReleaseYear} onChange={handleInputChange} id="ReleaseYear"></input>

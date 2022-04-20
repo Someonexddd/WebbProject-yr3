@@ -92,7 +92,7 @@ namespace WebbProjekt_yr3
             });
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+
             app.UseSpaStaticFiles();
 
             app.UseRouting();

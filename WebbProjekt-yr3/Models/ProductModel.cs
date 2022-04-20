@@ -35,6 +35,8 @@ namespace WebbProjekt_yr3.Models
         public int UnitsInStock { get; set; }
         [Column(TypeName = "nvarchar(max)")]
         public string ImageName { get; set; }
+        [Column(TypeName = "nvarchar(max)")]
+        public string ImageAlt { get; set; }
         [NotMapped]
         public IFormFile ImageFile { get; set; }
         [NotMapped]

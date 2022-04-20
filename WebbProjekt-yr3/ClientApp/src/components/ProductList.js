@@ -4,7 +4,7 @@ import axios from "axios";
 
 function ReturnFunc() {
 
-    const [ProductList, setProductList] = useState([])
+    const [ProductListConst, setProductListConst] = useState([])
 
     useEffect(() => {
         refreshProductList();
@@ -18,7 +18,7 @@ function ReturnFunc() {
             })
             .catch(err => console.log(err))
     }
-
+    
     const productAPI = (url = 'http://localhost:5000/api/ProductModels') => {
         return {
             fetchAll: () => axios.get(url),
@@ -30,21 +30,22 @@ function ReturnFunc() {
 
     function refreshProductList() {
         productAPI().fetchAll()
-            .then(res => setProductList(res.data))
+            .then(res => setProductListConst(res.data))
             .catch(err => console.log(err))
     }
-    const imageCard = data => {
-        <>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src={data.ImgSrc} alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{data.Name}</h5>
-                        <p class="card-text">{data.Artist}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+
+
+    const imageCard = data => (
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src={data.ImageSrc} alt={data.ImageAlt} />
+            <div class="card-body">
+                <h5 class="card-title">{data.Name}</h5>
+                <p class="card-text">{data.Artist}</p>
+                <a href="#" class="btn btn-primary">Details</a>
             </div>
-        </>
-    }
+        </div>
+    )
 
     return (
         <div className='row mb-4'>
@@ -63,6 +64,17 @@ function ReturnFunc() {
             </div>
             <div className='col-md-8'>
                 <table>
+                    <tbody>
+                        {
+                            [...Array(Math.ceil(ProductList.length / 3))].map((e, i) =>
+                                <tr>
+                                    <td>{imageCard(ProductList[3 * i])}</td>
+                                    <td>{ProductList[3 * i + 1] ? imageCard(ProductList[3 * i + 1]) : null}</td>
+                                    <td>{ProductList[3 * i + 2] ? imageCard(ProductList[3 * i + 2]) : null}</td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
                 </table>
             </div>
         </div>

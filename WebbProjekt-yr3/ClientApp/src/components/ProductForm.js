@@ -17,7 +17,8 @@ const initalFieldValues = {
     UnitsInStock: "",
     imageName: "",
     imageSrc: defaultImageSrc,
-    imageFile: null
+    imageFile: null,
+    imageAlt: null
 }
 
 export default function ProductForm(props) {
@@ -62,7 +63,8 @@ export default function ProductForm(props) {
                 UnitsInStock: null,
                 imageName: null,
                 imageFile: null,
-                imageSrc: defaultImageSrc
+                imageSrc: defaultImageSrc,
+                imageAlt: null
             })
         }
     }
@@ -71,6 +73,7 @@ export default function ProductForm(props) {
         let temp = {}
         temp.Name = values.Name === "" ? false : true;
         temp.Name = values.Artist === "" ? false : true;
+        temp.imageAlt = values.imageAlt === "" ? false : true;
         temp.ReleaseYear = values.ReleaseYear === "" ? false : true;
         temp.UnitsInStock = values.UnitsInStock === "" ? false : true;
         temp.imageSrc = values.imageSrc === defaultImageSrc ? false : true;
@@ -81,6 +84,7 @@ export default function ProductForm(props) {
     const resetForm = () => {
         setValues(initalFieldValues)
         document.getElementById('image-uploader').value = null;
+        document.getElementById('imageAlt').value = null;
         document.getElementById('Name').value = null;
         document.getElementById('Artist').value = null;
         document.getElementById('ReleaseYear').value = null;
@@ -106,6 +110,8 @@ export default function ProductForm(props) {
             formData.append('UnitsInStock', values.UnitsInStock)
             formData.append('imageName', values.imageName)
             formData.append('imageFile', values.imageFile)
+            formData.append('imageAlt', values.imageAlt)
+
             addOrEdit(formData, resetForm())
         }
     }
@@ -130,6 +136,9 @@ export default function ProductForm(props) {
                         <div className='form-group'>
                             <input type="file" accept='image/*' className={'form-control-file' + applyErrorClass('imageSrc')}
                                 onChange={showPreview} id="image-uploader" />
+                        </div>
+                        <div className='form-group'>
+                            <input className={'form-control' + applyErrorClass('imageAlt')} placeholder='imageAlt' name="imageAlt" values={values.imageAlt} onChange={handleInputChange} id="imageAlt"></input>
                         </div>
                         <div className='form-group'>
                             <input className={'form-control' + applyErrorClass('Name')} placeholder='Name' name="Name" values={values.Name} onChange={handleInputChange} id="Name"></input>

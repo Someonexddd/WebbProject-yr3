@@ -47,6 +47,24 @@ function ReturnFunc() {
         </div>
     )
 
+
+
+    const displayItems = ProductListConst.map((product) =>  
+        <tr>
+        <td>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src={product.ImageSrc} alt={product.ImageAlt} />
+            <div class="card-body">
+                <h5 class="card-title">{product.Name}</h5>
+                <p class="card-text">{product.Artist}</p>
+                <a href="#" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+            </td>
+    </tr>
+    
+  );
+
     return (
         <div className='row mb-4'>
             <div className='col-md-12'>
@@ -65,15 +83,7 @@ function ReturnFunc() {
             <div className='col-md-8'>
                 <table>
                     <tbody>
-                        {
-                            [...Array(Math.ceil(ProductList.length / 3))].map((e, i) =>
-                                <tr>
-                                    <td>{imageCard(ProductList[3 * i])}</td>
-                                    <td>{ProductList[3 * i + 1] ? imageCard(ProductList[3 * i + 1]) : null}</td>
-                                    <td>{ProductList[3 * i + 2] ? imageCard(ProductList[3 * i + 2]) : null}</td>
-                                </tr>
-                            )
-                        }
+                       {displayItems}
                     </tbody>
                 </table>
             </div>

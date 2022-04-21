@@ -18,3 +18,11 @@ code {
   color: #dc3545;
   background-color: #fff;
 }
+
+.titleFont {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.breadFont {
+  font-family: 'Roboto', sans-serif;
+}

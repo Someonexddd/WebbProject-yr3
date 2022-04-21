@@ -1,8 +1,11 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductForm from './ProductForm';
 import axios from "axios";
 
-function ReturnFunc() {
+
+
+
+export default function ProductList() {
 
     const [ProductListConst, setProductListConst] = useState([])
 
@@ -18,7 +21,7 @@ function ReturnFunc() {
             })
             .catch(err => console.log(err))
     }
-    
+
     const productAPI = (url = 'http://localhost:5000/api/ProductModels') => {
         return {
             fetchAll: () => axios.get(url),
@@ -29,73 +32,76 @@ function ReturnFunc() {
     }
 
     function refreshProductList() {
+
         productAPI().fetchAll()
-            .then(res => setProductListConst(res.data))
+            .then(res => {
+                console.log(res.data);
+                setProductListConst(res.data)
+            })
             .catch(err => console.log(err))
     }
 
 
-    const imageCard = data => (
 
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src={data.ImageSrc} alt={data.ImageAlt} />
-            <div class="card-body">
-                <h5 class="card-title">{data.Name}</h5>
-                <p class="card-text">{data.Artist}</p>
-                <a href="#" class="btn btn-primary">Details</a>
+
+    /* const imageCard = data => (
+ 
+         <div class="card" style="width: 18rem;">
+             <img class="card-img-top" src={data.ImageSrc} alt={data.ImageAlt} />
+             <div class="card-body">
+                 <h5 class="card-title">{data.Name}</h5>
+                 <p class="card-text">{data.Artist}</p>
+                 <a href="#" class="btn btn-primary">Details</a>
+             </div>
+         </div>
+     ) */
+
+
+
+    const displayItems = ProductListConst.map((product) =>
+        <div className='col-4' key={product.productId}>
+
+            <div className="card">
+                <img className="card-img-top" src={product.imageSrc} alt={product.imageAlt} />
+                <div className="card-body">
+                    <h5 className="card-title">{product.name}</h5>
+                    <p className="card-text">{product.artist}</p>
+                    <a href="" className="btn btn-primary">Details</a>
+                </div>
             </div>
         </div>
-    )
 
 
-
-    const displayItems = ProductListConst.map((product) =>  
-        <tr>
-        <td>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src={product.ImageSrc} alt={product.ImageAlt} />
-            <div class="card-body">
-                <h5 class="card-title">{product.Name}</h5>
-                <p class="card-text">{product.Artist}</p>
-                <a href="#" class="btn btn-primary">Details</a>
-            </div>
-        </div>
-            </td>
-    </tr>
-    
-  );
+    );
 
     return (
-        <div className='row mb-4'>
-            <div className='col-md-12'>
-                <div container py-4>
-                    <div class="p-5 mb-4 bg-light rounded-3">
-                        <div class="container-fluid py-5">
-                            <h1 class="display-5 fw-bold text-center">Product register</h1>
+        <>
+            <div className='row'>
+                <div className='col'>
+
+                    <div className="p-5 mb-4 bg-light rounded-3">
+                        <div className="container-fluid py-5">
+                            <h1 className="display-5 fw-bold text-center">Product register</h1>
+
                         </div>
                     </div>
                 </div>
+                <div className='row'>
+                    <div className='col-'>
+                        <ProductForm
+                            addOrEdit={addOrEdit} />
+                    </div>
+                    <div className='row'>
+
+
+                        {displayItems}
+
+
+
+                    </div >
+                </div>
             </div>
-            <div className='col-md-4'>
-                <ProductForm
-                    addOrEdit={addOrEdit} />
-            </div>
-            <div className='col-md-8'>
-                <table>
-                    <tbody>
-                       {displayItems}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        </>
     );
 }
 
-export class ProductList extends Component {
-    static displayName = ProductList.name;
-    render() {
-        return (
-            ReturnFunc()
-        );
-    }
-}

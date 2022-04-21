@@ -28,7 +28,8 @@ namespace WebbProjekt_yr3.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductModel>>> GetProducts()
         {
-            return await _context.Products
+
+            var result = await _context.Products
                 .Select(x => new ProductModel()
                 {
                     ProductId = x.ProductId,
@@ -44,6 +45,7 @@ namespace WebbProjekt_yr3.Controllers
                     ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
                 })
                 .ToListAsync();
+            return result;
         }
 
         // GET: api/ProductModels/5

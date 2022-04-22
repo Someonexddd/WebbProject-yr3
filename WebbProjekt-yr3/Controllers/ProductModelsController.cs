@@ -34,6 +34,7 @@ namespace WebbProjekt_yr3.Controllers
                 {
                     ProductId = x.ProductId,
                     Name = x.Name,
+                    Artist = x.Artist,
                     ReleaseYear = x.ReleaseYear,
                     AddDate = x.AddDate,
                     Country = x.Country,
@@ -41,8 +42,8 @@ namespace WebbProjekt_yr3.Controllers
                     Genre = x.Genre,
                     UnitsInStock = x.UnitsInStock,
                     ImageName = x.ImageName,
-                    ImageFile = x.ImageFile,
-                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
+                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName),
+                    ImageAlt = x.ImageAlt
                 })
                 .ToListAsync();
             return result;

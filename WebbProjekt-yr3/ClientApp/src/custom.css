@@ -26,3 +26,14 @@ code {
 .breadFont {
   font-family: 'Roboto', sans-serif;
 }
+
+@media (min-width: 992px) {
+
+  .productListContainer {
+    width: 970px;
+  }
+  .imageSize {
+    width: 186px;
+    height: 186px;
+  }
+}

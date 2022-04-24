@@ -1,6 +1,6 @@
 ﻿# WebbProject-yr3
 
-SETUP IN VISUAL STUDIO (THIS GUIDE WAS MADE FOR VS COMMUNITY 2O19)
+This project requires Visual Studio Code 2019 or 2022 (https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false) and NodeJS (https://nodejs.org/dist/v16.14.2/node-v16.14.2-x64.msi)
 
 
 Step 1.

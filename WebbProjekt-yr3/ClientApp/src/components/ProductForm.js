@@ -15,6 +15,7 @@ const initalFieldValues = {
     Format: "",
     Genre: "",
     UnitsInStock: "",
+    UnitsSold: "0",
     imageName: "",
     imageSrc: defaultImageSrc,
     imageFile: null,
@@ -61,6 +62,7 @@ export default function ProductForm(props) {
                 Format: null,
                 Genre: null,
                 UnitsInStock: null,
+                UnitsSold: "",
                 imageName: null,
                 imageFile: null,
                 imageSrc: defaultImageSrc,
@@ -108,6 +110,7 @@ export default function ProductForm(props) {
             formData.append('Format', values.Format)
             formData.append('Genre', values.Genre)
             formData.append('UnitsInStock', values.UnitsInStock)
+            formData.append('UnitsSold', values.UnitsSold)
             formData.append('imageName', values.imageName)
             formData.append('imageFile', values.imageFile)
             formData.append('imageAlt', values.imageAlt)

@@ -34,6 +34,8 @@ namespace WebbProjekt_yr3.Models
         [Column(TypeName = "nvarchar(max)")]
         public int UnitsInStock { get; set; }
         [Column(TypeName = "nvarchar(max)")]
+        public int UnitsSold { get; set; }
+        [Column(TypeName = "nvarchar(max)")]
         public string ImageName { get; set; }
         [Column(TypeName = "nvarchar(max)")]
         public string ImageAlt { get; set; }

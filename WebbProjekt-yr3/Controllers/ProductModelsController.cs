@@ -41,6 +41,7 @@ namespace WebbProjekt_yr3.Controllers
                     Format = x.Format,
                     Genre = x.Genre,
                     UnitsInStock = x.UnitsInStock,
+                    UnitsSold = x.UnitsSold,
                     ImageName = x.ImageName,
                     ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName),
                     ImageAlt = x.ImageAlt
@@ -101,6 +102,7 @@ namespace WebbProjekt_yr3.Controllers
         {
             productModel.ProductId = new Guid();
             productModel.AddDate = new DateTime();
+            productModel.UnitsSold = 0;
             productModel.ImageName = await SaveImage(productModel.ImageFile);
             _context.Products.Add(productModel);
             await _context.SaveChangesAsync();

@@ -69,4 +69,8 @@
     </ItemGroup>
   </Target>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="$(SolutionDir)\bin\debug\net5.0\StartWebsite.bat" />
+  </Target>
+
 </Project>

@@ -1,12 +1,14 @@
 echo on
 title Intalling Files
 dotnet tool install --global dotnet-ef
-echo -- Dotnet EF is now installed
+echo -- Dotnet EF is now installed!
 dotnet ef database update --context ApplicationDbContext
-echo -- Login System Created
+echo -- Login System Created!
 dotnet ef database update --context ProductDbContext
-echo -- Product System Created
+echo -- Product System Created!
 
-echo Installation is done. Launching Website
+echo Installation is done. Launching Website!
 
-dotnet run --launch-profile dev
+bin\Debug\net5.0\WebbProjekt-yr3.exe
+
+pause

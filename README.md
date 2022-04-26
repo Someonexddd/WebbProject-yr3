@@ -1,6 +1,6 @@
 ﻿# WebbProject-yr3
 
-This project requires Visual Studio Code 2019 or 2022 (https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false) and NodeJS (https://nodejs.org/dist/v16.14.2/node-v16.14.2-x64.msi)
+This project requires Visual Studio Code 2019 or 2022 (https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false), NodeJS (https://nodejs.org/dist/v16.14.2/node-v16.14.2-x64.msi) and Git (https://github.com/git-for-windows/git/releases/download/v2.36.0.windows.1/Git-2.36.0-64-bit.exe)
 
 
 Step 1.

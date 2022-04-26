@@ -26,28 +26,22 @@ Name it "NerDatabase" (Its case sensitive)
 
 Step 3.
 
-In Package Mananger Console (Tools -> NuGetPackage manager ->  package manager console and then it should open at the bottom of visual studio)
-Type:
-```
-dotnet tool install --global dotnet-ef
-```
-and
-```
-dotnet ef database update --context ApplicationDbContext
-```
-and lastly
-```
-dotnet ef database update --context ProductDbContext
-```
+Open the sln file to open the project. And run the project with the Button and setting shown in the picture below
 
-Step 4.
+![alt text](https://imgur.com/a/cjMCfZN)
 
-In the powershell console at the bottom. 
-Type:
-```
-dotnet run
-```
 <pre>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -28,7 +28,7 @@ Step 3.
 
 Open the sln file to open the project. And run the project with the Button and setting shown in the picture below
 
-!(https://imgur.com/a/cjMCfZN)
+![](https://imgur.com/a/cjMCfZN)
 
 <pre>
 

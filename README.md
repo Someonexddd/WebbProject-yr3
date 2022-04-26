@@ -26,7 +26,7 @@ Name it "NerDatabase" (Its case sensitive)
 
 Step 3.
 
-Open the sln file to open the project. And run the project with the Button and setting shown in the picture below
+Run the project with the Button and setting shown in the picture below
 
 ![](https://i.imgur.com/2i8RgI7.png)
 

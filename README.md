@@ -5,11 +5,18 @@ This project requires Visual Studio Code 2019 or 2022 (https://visualstudio.micr
 
 Step 1.
 
+Open the commandline or powershell and type:
+```
+git clone https://github.com/Someonexddd/WebbProject-yr3.git
+```
+
+Step 2.
+
 Open the folder webbproject-yr3 and the folder below with the same name. 
 Double click on the .sln file (im assuming you have vs 2019 or 2022)
 
 
-Step 2.
+Step 3.
 
 Open SQL Server Object Explorer (View -> SQL Server Object Explorer then it should open on the left side of visual studio)
 
@@ -24,7 +31,7 @@ Click "New database"
 Name it "NerDatabase" (Its case sensitive)
 
 
-Step 3.
+Step 4.
 
 Run the project with the Button and setting shown in the picture below
 

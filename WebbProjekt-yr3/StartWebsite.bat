@@ -1,6 +1,6 @@
 echo on
 title Intalling Files
-dotnet tool install --global dotnet-ef
+dotnet tool install --global --version 5.0.12 dotnet-ef
 echo -- Dotnet EF is now installed!
 dotnet ef database update --context ApplicationDbContext
 echo -- Login System Created!

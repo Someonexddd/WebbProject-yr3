@@ -78,3 +78,10 @@ in packagemananger to update database after migration:
 ```
 dotnet ef database update --context MyDbContext
 ```
+```
+dotnet ef database update --context ApplicationDbContext
+```
+```
+dotnet ef database update --context ProductDbContext
+```
+

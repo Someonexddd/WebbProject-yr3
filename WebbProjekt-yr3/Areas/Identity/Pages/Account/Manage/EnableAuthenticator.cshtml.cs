@@ -149,7 +149,7 @@ namespace WebbProjekt_yr3.Areas.Identity.Pages.Account.Manage
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("WebbProjekt_yr3"),
+                _urlEncoder.Encode("North End Records"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

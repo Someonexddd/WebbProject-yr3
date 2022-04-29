@@ -118,7 +118,6 @@ namespace WebbProjekt_yr3
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
-
         }
     }
 }

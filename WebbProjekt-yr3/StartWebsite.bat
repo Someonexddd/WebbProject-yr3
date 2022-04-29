@@ -7,4 +7,6 @@ echo -- Login System Created!
 dotnet ef database update --context ProductDbContext
 echo -- Product System Created!
 
+pause
+
 echo Installation is done. Launching Website!

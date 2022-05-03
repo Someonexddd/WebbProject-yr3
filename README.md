@@ -18,21 +18,6 @@ Double click on the .sln file (im assuming you have vs 2019 or 2022)
 
 Step 3.
 
-Open SQL Server Object Explorer (View -> SQL Server Object Explorer then it should open on the left side of visual studio)
-
-Expand SQL Server
-
-Expand (localdb)\MSSQLLocalDB..................................
-
-Rightclick on the "Databases" folder
-
-Click "New database"
-
-Name it "NerDatabase" (Its case sensitive)
-
-
-Step 4.
-
 Run the project with the Button and setting shown in the picture below
 
 ![](https://i.imgur.com/2i8RgI7.png)

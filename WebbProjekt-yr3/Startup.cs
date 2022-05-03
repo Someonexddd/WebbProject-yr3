@@ -9,11 +9,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.SpaServices.Extensions;
 using WebbProjekt_yr3.Data;
 using WebbProjekt_yr3.Models;
 using System.IO;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.Linq;
 
 namespace WebbProjekt_yr3
 {
@@ -62,7 +64,7 @@ namespace WebbProjekt_yr3
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApplicationBuilder builder)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApplicationBuilder builder, ApplicationDbContext appDbContext, ProductDbContext productDbContext)
         {
             if (env.IsDevelopment())
             {
@@ -75,6 +77,11 @@ namespace WebbProjekt_yr3
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            appDbContext.Database.Migrate();
+            productDbContext.Database.Migrate();
+
+
 
             app.UseCors(options => options.WithOrigins("https://localhost:5001",
                                                        "localhost:5001",

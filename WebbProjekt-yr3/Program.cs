@@ -21,6 +21,8 @@ namespace WebbProjekt_yr3
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    
                 });
     }
+
 }

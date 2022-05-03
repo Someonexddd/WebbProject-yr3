@@ -25,6 +25,7 @@ const initalFieldValues = {
 export default function ProductForm(props) {
 
     const { addOrEdit } = props;
+    const { productAPI } = props;
 
     const [values, setValues] = useState(initalFieldValues);
     const [errors, setErrors] = useState({})

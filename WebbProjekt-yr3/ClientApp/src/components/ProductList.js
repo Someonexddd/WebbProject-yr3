@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ProductForm from './ProductForm';
+import { Link } from 'react-router-dom';
 import axios from "axios";
 import '../custom.css';
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -9,6 +11,9 @@ import '../custom.css';
 export default function ProductList() {
 
     const [ProductListConst, setProductListConst] = useState([])
+
+
+
 
     useEffect(() => {
         refreshProductList();
@@ -68,18 +73,12 @@ export default function ProductList() {
                 <div className="card-body">
                     <h5 className="card-title">{product.name}</h5>
                     <p className="card-text">{product.artist}</p>
-                    <a href="#top" className="btn btn-primary">Details</a>
+                    <Button variant="primary" as={Link} to='/Details'>Details</Button>
                 </div>
             </div>
 
         </div>
     );
-    /* 
-                <div className='col-sm-6'>
-                    <ProductForm
-                        addOrEdit={addOrEdit} />
-                </div>
-    */
 
     return (
         <>
@@ -99,7 +98,8 @@ export default function ProductList() {
             <div className='row'>
             <div className='col-sm-6'>
                     <ProductForm
-                        addOrEdit={addOrEdit} />
+                        addOrEdit={addOrEdit}/>
+                        
                 </div>
             </div>
         </>
